@@ -13,7 +13,6 @@
 	
   	var googleUrl = 'https://www.google.com';
 	
-	var httpclient = Titanium.Network.createHTTPClient();
 	
 	function parseError(body) {
 		var result = {}
@@ -37,6 +36,7 @@
 
 	ar.google.login = function login(args) {
 		init (args)
+		var httpclient = Titanium.Network.createHTTPClient();
 		httpclient.open('POST', googleUrl+'/accounts/ClientLogin');
 		httpclient.onload = function() {
 			var body = this.responseText;
